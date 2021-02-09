@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>molecule_in_webpage.js demo</title>
+<script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+
+
+<script>
+    AFRAME.registerComponent("movement_controls", {
+      init: function() {
+        let self = this.el
+        document.onkeypress = function(e) {
+          let rot = self.getAttribute("rotation")
+
+          //w
+          if (e.charCode === 119) {
+            rot.x += 2
+          }
+
+          //s
+          if (e.charCode === 115) {
+            rot.x -= 2
+          }
+
+          //a
+          if (e.charCode === 97) {
+            rot.y += 2
+          }
+
+          //d
+          if (e.charCode === 100) {
+            rot.y -= 2
+          }
+
+          //q
+          if (e.charCode === 113) {
+            rot.z += 2
+          }
+
+          //e
+          if (e.charCode === 101) {
+            rot.z -= 2
+          }
+
+          let pos = self.getAttribute("position")
+
+          //i
+          if (e.charCode === 105) {
+            pos.z += 0.1
+          }
+
+          //k
+          if (e.charCode === 107) {
+            pos.z -= 0.1
+          }
+
+          //j
+          if (e.charCode  === 106) {
+            pos.x += 0.1
+          }
+
+          //l
+          if (e.charCode  === 108) {
+            pos.x -= 0.1
+          }
+          
+          //u
+          if (e.charCode  === 117) {
+            pos.y += 0.1
+          }
+
+          //o
+          if (e.charCode  === 111) {
+            pos.y -= 0.1
+          }
+
+          self.object3D.rotation.set(
+                THREE.Math.degToRad(rot.x),
+                THREE.Math.degToRad(rot.y),
+                THREE.Math.degToRad(rot.z)
+            );
+        };
+      }
+    })
+  </script>
+</head>
+
+<body style="margin: 0px; overflow: hidden;">
+    <a-scene renderer="gammaOutput: true; precision: mediump">
+        <a-camera wasd-controls-enabled="false"></a-camera>
+        <a-assets>
+            <a-asset-item id="dna" src="molecules/3bse-1.glb"></a-asset-item> 
+        </a-assets>
+        <a-entity light="type: ambient; color: #CCC"></a-entity>
+            <a-entity light="type: point; intensity: 1; distance: 50; decay: 2"
+                position="0 10 10"></a-entity>
+             <a-entity light="type: point; intensity: 2; distance: 50; decay: 2"
+                  position="0 -1 2"></a-entity>
+            <a-entity light="type: point; intensity: 2; distance: 50; decay: 2"
+                  position="-1 1 0"></a-entity>
+        <a-entity scale=".2 .2 .2">
+            <a-entity gltf-model='#dna' scale="0.2 0.2 0.2" position="-2 5 -25" movement_controls></a-entity>
+        </a-entity>
+    </a-scene>
+</body>
+</html>

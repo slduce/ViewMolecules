@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>A-Frame using a Camera with Orbit Controls</title>
+        <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+        <script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/master/dist/aframe-orbit-controls-component.min.js"></script>
+      </head>
+      
+      <body>
+        <a-scene background="color: #cccccc">
+      
+              <a-entity
+                  id="camera"
+                  camera
+                  position="0 0 5"
+                  orbit-controls="
+                      autoRotate: false;
+                      target: #target;
+                      enableDamping: true;
+                      dampingFactor: 0.25;
+                      rotateSpeed:0.14;
+                      minDistance:3;
+                      maxDistance:15;"
+                  mouse-cursor="">
+              </a-entity>
+      
+              <a-assets>
+                <a-asset-item id="dna" src="molecules/3bse-1.glb"></a-asset-item> 
+            </a-assets>
+            </a-assets>
+
+            <a-entity light="type: directional; color: #FFF; intensity: 2" position="-1 -1 -1"></a-entity>
+            <a-entity light="type: directional; color: #FFF; intensity: 2" position="1 1 -1"></a-entity>
+            <a-entity light="type: directional; color: #FFF; intensity: 3" position="1 -1 1"></a-entity>
+            <a-entity light="type: directional; color: #FFF; intensity: 3" position="-1 1 1"></a-entity>
+
+            <a-entity scale=".4 .4 .4">
+                <a-entity gltf-model='#dna' scale="0.2 0.2 0.2" position="-1 9 0" rotation='90 0 0'> </a-entity>
+            </a-entity>
+      
+              <a-entity id="target" geometry="primitive: box" scale=".001 .001 .001" position="0 0 0" material="color: #cccccc"></a-entity>
+! havent sorted out the target command so I miniturised the box and made it the same colour as the background
+
+
+      
+          </a-scene>
+      </body>
+      
+</html>
