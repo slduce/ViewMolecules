@@ -15,7 +15,7 @@
             arjs="sourceType: webcam; debugUIEnabled: false;">
 
         <a-assets>
-           <a-asset-item id="rna" src="molecules/2GIS_1.glb"></a-asset-item>
+           <a-asset-item id="rna" src="molecules/2GIS_1LR.glb"></a-asset-item>
         </a-assets>
 
         <a-entity light="type: point; intensity: 1; distance: -40; decay: 2" position="-1 1 1"></a-entity>
@@ -23,7 +23,7 @@
 
         <a-marker type='pattern' url="markers/d-icon.patt">
                 <a-entity scale=".1 .1 .1">
-                <a-entity gltf-model='#rna' scale="1 1 1" position="20 -50 -30" rotation="0 -0 45"></a-entity>
+                <a-entity gltf-model='#rna' scale="1 1 1" position="20 -50 -20" rotation="0 -0 45"></a-entity>
                 </a-entity>
         </a-marker>
         <a-entity camera></a-entity>
@@ -33,7 +33,7 @@
         look-at="[gps-camera]"
         scale="2 2 2"
         position="0 3 0"
-        gps-entity-place="latitude: 56.4725847; longitude: -2.8796203;"
+        gps-entity-place="latitude: 56.4725900; longitude: -2.8796580;"
         !latitude: 56.473924 decrease number brings it nearer camera; longitude: -2.8801306 increase this number and move to the wall
       ></a-text>
       <a-camera gps-camera rotation-reader> </a-camera>
@@ -43,7 +43,7 @@
                     look-at="[gps-camera]"
                     scale="6.4 .658 1"
                     position="0 1 0"
-                    gps-entity-place="latitude: 56.4725587; longitude: -2.879603;">
+                    gps-entity-place="latitude: 56.4725587; longitude: -2.879590;">
         </a-image>
         <a-camera gps-camera rotation-reader></a-camera>
 
